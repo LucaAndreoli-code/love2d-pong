@@ -1,0 +1,21 @@
+name: Build Love2D Game
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: love-actions/love-actions-windows@v1
+      with:
+        love-package: ./
+        love-version: "11.5"
+    - uses: love-actions/love-actions-macos-portable@v1  
+      with:
+        love-package: ./
+        love-version: "11.5"
+    - uses: love-actions/love-actions-linux@v1
+      with:
+        love-package: ./
+        love-version: "11.5"
