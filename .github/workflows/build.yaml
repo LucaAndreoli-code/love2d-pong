@@ -1,0 +1,23 @@
+name: Build Love2D Game
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: love-actions/love-actions-core@v1
+      with:
+        build-list: ./conf.lua ./main.lua
+        package-path: ./game.love
+    - uses: love-action/love-actions-windows@v1
+      with:
+        love-package: ./game.love
+        icon-path: ./assets/windows/icon.ico
+        rc-path: ./assets/windows/template.rc
+        product-name: love_app
+        app-id: ${{ secrets.APP_ID }}
+        product-website: https://www.example.com
+        installer-languages: English.isl ChineseSimplified.isl
+        output-folder: "./dist"
