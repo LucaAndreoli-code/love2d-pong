@@ -138,13 +138,13 @@ function MoveBall()
     Ball.x = Ball.x + Ball.speedX
     Ball.y = Ball.y + Ball.speedY
 
-    if Ball.x < goal.width then
+    if Ball.x - Ball.radius < goal.width then
         GameState.score2 = GameState.score2 + 1
         if GameState.score2 >= 2 then
             GameState.isOver = true
             GameState.winner = "2"
         end
-    elseif Ball.x > W - goal.width then
+    elseif Ball.x + Ball.radius > W - goal.width then
         GameState.score1 = GameState.score1 + 1
         if GameState.score1 >= 2 then
             GameState.isOver = true
@@ -152,7 +152,7 @@ function MoveBall()
         end
     end
 
-    if Ball.x < goal.width or Ball.x > W - goal.width then
+    if Ball.x - Ball.radius < goal.width or Ball.x + Ball.radius > W - goal.width then
         Ball.x = W / 2
         Ball.y = H / 2
     end
