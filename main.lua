@@ -28,8 +28,8 @@ function love.load()
         x = W / 2,
         y = H / 2,
         radius = 10,
-        speedX = 2.5,
-        speedY = 2.5
+        speedX = 5,
+        speedY = 5
     }
 
     goal = {
@@ -37,7 +37,8 @@ function love.load()
         height = H
     }
 
-    PaddleSpeed = 2
+    WinningScore = 10
+    PaddleSpeed = 4
 
     GameState = {
         winner = "",
@@ -140,13 +141,13 @@ function MoveBall()
 
     if Ball.x - Ball.radius < goal.width then
         GameState.score2 = GameState.score2 + 1
-        if GameState.score2 >= 2 then
+        if GameState.score2 >= WinningScore then
             GameState.isOver = true
             GameState.winner = "2"
         end
     elseif Ball.x + Ball.radius > W - goal.width then
         GameState.score1 = GameState.score1 + 1
-        if GameState.score1 >= 2 then
+        if GameState.score1 >= WinningScore then
             GameState.isOver = true
             GameState.winner = "1"
         end
