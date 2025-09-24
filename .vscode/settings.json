@@ -1,8 +1,0 @@
-{
-    "Lua.diagnostics.globals": [
-        "love"
-    ],
-    "Lua.workspace.library": [
-        "/Applications/love.app/Contents/MacOS/love/love2d-api"
-    ]
-}

@@ -9,7 +9,7 @@ function love.load()
         width = paddleWidht,
         height = paddleHeight
     }
-
+    
     Player2 = {
         x = W - distanceFromEdge - 20,
         y = hWithOffset,
